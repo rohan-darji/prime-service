@@ -12,8 +12,8 @@ import org.springframework.web.bind.annotation.RequestBody;
 import java.io.IOException;
 
 public class AuthenticationController {
-    private IAuthenticationService authenticationService;
-    private AuthenticationManager authenticationManager;
+    private final IAuthenticationService authenticationService;
+    private final AuthenticationManager authenticationManager;
     private TokenService tokenService;
 
     public AuthenticationController(IAuthenticationService authenticationService, AuthenticationManager authenticationManager, TokenService tokenService) {

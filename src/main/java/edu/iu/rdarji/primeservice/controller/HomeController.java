@@ -7,7 +7,12 @@ import org.springframework.web.bind.annotation.RestController;
 @CrossOrigin
 public class HomeController {
     @GetMapping
-    public String greetings() {
-        return "Welcome to primes service!";
+    public String greetings(){
+        return "Welcome to the prime services!";
+    }
+
+    @GetMapping("/error")
+    public String error(){
+        return "Error";
     }
 }
