@@ -11,7 +11,7 @@ import org.springframework.stereotype.Service;
 
 import java.io.IOException;
 
-@Service("authenticationService")
+@Service
 public class AuthenticationService implements IAuthenticationService, UserDetailsService {
     IAuthenticationRepository authenticationRepository;
 
@@ -28,13 +28,6 @@ public class AuthenticationService implements IAuthenticationService, UserDetail
 
     @Override
     public boolean login(String username, String password) throws IOException {
-        Customer customer = authenticationRepository.findByUsername(username);
-        if (customer != null) {
-            BCryptPasswordEncoder bc = new BCryptPasswordEncoder();
-            if (bc.matches(password, customer.getPassword())) {
-                return true;
-            }
-        }
         return false;
     }
     @Override
@@ -45,7 +38,7 @@ public class AuthenticationService implements IAuthenticationService, UserDetail
                 throw new UsernameNotFoundException("");
             }
             return User.withUsername(username).password(customer.getPassword()).build();
-        } catch (Exception e) {
+        } catch (IOException e) {
             throw new RuntimeException(e);
         }
     }
