@@ -4,10 +4,10 @@ import edu.iu.rdarji.primeservice.service.PrimesService;
 import org.junit.jupiter.api.Test;
 import org.springframework.boot.test.context.SpringBootTest;
 
-import static org.junit.jupiter.api.Assertions.assertEquals;
+import static org.junit.jupiter.api.Assertions.*;
 
 @SpringBootTest
-class PrimeServiceApplicationTests {
+class PrimesServiceApplicationTests {
 
 	@Test
 	void contextLoads() {
